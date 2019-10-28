@@ -8,12 +8,21 @@
 # -*- coding: utf-8 -*-
 # Your code goes below this line
 
+# encoding=utf8
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+
+
 import os
 import io
 from logging import getLogger
 import numpy as np
 import torch
 from scipy.stats import spearmanr
+
+
+
 
 
 MONOLINGUAL_EVAL_PATH = 'data/monolingual'
