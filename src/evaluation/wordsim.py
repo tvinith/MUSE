@@ -34,9 +34,10 @@ def get_word_pairs(path, lower=True):
             line = line.rstrip()
             line = line.lower() if lower else line
             line = line.split()
+            print(line,path)
+
             # ignore phrases, only consider words
             if len(line) != 3:
-                print(line,path)
                 assert len(line) > 3
                 assert 'SEMEVAL17' in os.path.basename(path) or 'EN-IT_MWS353' in path
                 continue
