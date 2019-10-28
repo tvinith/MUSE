@@ -17,6 +17,7 @@ mkdir monolingual crosslingual
 
 ## English word analogy task
 curl -Lo source-archive.zip $en_analogy
+wait
 mkdir -p monolingual/en/
 unzip -p source-archive.zip word2vec/trunk/questions-words.txt > monolingual/en/questions-words.txt
 rm source-archive.zip
@@ -31,8 +32,10 @@ do
   do
     fname=en-$lg$suffix
     curl -Lo crosslingual/dictionaries/$fname $dl_path/dictionaries/$fname
+    wait
     fname=$lg-en$suffix
     curl -Lo crosslingual/dictionaries/$fname $dl_path/dictionaries/$fname
+    wait
   done
 done
 
@@ -47,6 +50,7 @@ do
       do
         fname=$src_lg-$tgt_lg$suffix
         curl -Lo crosslingual/dictionaries/$fname $dl_path/dictionaries/$fname
+        wait
       done
     fi
   done
@@ -57,6 +61,7 @@ for fname in OPUS_en_it_europarl_train_5K.txt OPUS_en_it_europarl_test.txt
 do
     echo $fname
     curl -Lo crosslingual/dictionaries/$fname $dl_path/dictionaries/$fname
+    wait
 done
 
 ## Monolingual wordsim tasks
@@ -68,6 +73,7 @@ do
   do
     echo $wsim
     curl -Lo monolingual/$lang/$wsim $dl_path/$lang/$wsim
+    wait
   done
 done
 
