@@ -5,6 +5,9 @@
 # LICENSE file in the root directory of this source tree.
 #
 
+# -*- coding: utf-8 -*-
+# Your code goes below this line
+
 import os
 import io
 from logging import getLogger
