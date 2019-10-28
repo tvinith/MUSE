@@ -38,7 +38,6 @@ def get_word_pairs(path, lower=True):
     word_pairs = []
     with io.open(path, 'r', encoding='utf-8') as f:
         for line in f:
-            line = unicode(line, 'utf8')
             line = line.encode('utf8', 'replace')
             line = line.rstrip()
             line = line.lower() if lower else line
