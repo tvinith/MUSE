@@ -1,5 +1,6 @@
 # MUSE data and result folders
 
+data/vect
 data/crosslingual/
 data/monolingual/
 dumped/
