@@ -2,6 +2,6 @@ python unsupervised.py   --src_lang en --tgt_lang es --src_emb data/vect/wiki.en
 		         --cuda True \
 						 --dico_build "S2T&T2S" \
 			 --exp_name "en_es" \
-	            	 --exp_id "002" \
+	            	 --exp_id "003" \
 			 --n_refinement 0 \
 			 --n_epochs 1
