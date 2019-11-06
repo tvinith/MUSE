@@ -42,8 +42,6 @@ def get_word_pairs(path, lower=True):
             line = line.rstrip()
             line = line.lower() if lower else line
             line = line.split()
-            print(line,path)
-
             # ignore phrases, only consider words
             if len(line) != 3:
                 assert len(line) > 3
