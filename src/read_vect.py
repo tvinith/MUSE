@@ -60,6 +60,7 @@ def load_dictionary(path, word2id1, word2id2,src_embed,tgt_embed):
     # sort the dictionary by source word frequencies
     pairs = sorted(pairs, key=lambda x: word2id1[x[0]])
     dico = torch.LongTensor(len(pairs), 2)
+    import pdb;pdb.set_trace()
     for i, (word1, word2) in enumerate(pairs):
         dico[i, 0] = src_embed[word2id1[word1]]
         dico[i, 1] = tgt_embed[word2id2[word2]]
