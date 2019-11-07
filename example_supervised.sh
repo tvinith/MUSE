@@ -13,9 +13,9 @@ if [ $KSWITCH == "GRET" ]; then
 				SAVE_DICT=$8
 				python src/read_vect.py --src_lang $2 --tgt_lang $3 \
 				 							--src_path $4 --tgt_path $5 \
-											--dico_train $6
-											--dico_test $7
-											--save_path $8
+											--dico_train $6 \
+											--dico_test $7 \
+											--save_path $8 
 elif [ $KSWITCH == "UNSUP" ]; then
 			echo "RUNNING unsupervised"
 			SRC_LANG=$2
