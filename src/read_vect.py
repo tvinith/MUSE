@@ -64,7 +64,7 @@ def load_dictionary(path, word2id1, word2id2,src_embed,tgt_embed):
     dico_tgt={}
     for i, (word1, word2) in enumerate(pairs):
         dico_src[i] = src_embed[word2id1[word1]]
-        dico_tgt[i = tgt_embed[word2id2[word2]]
+        dico_tgt[i] = tgt_embed[word2id2[word2]]
         import pdb;pdb.set_trace()
 
     dico=[dico_src,dico_tgt]
