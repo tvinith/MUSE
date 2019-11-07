@@ -11,7 +11,9 @@ parser.add_argument("--src_lang", type=str, default="", help="source language")
 parser.add_argument("--tgt_lang", type=str, default="", help="target language")
 parser.add_argument("--src_path", type=str, default="", help="source embeddings path")
 parser.add_argument("--tgt_path", type=str, default="", help="target embeddigns path")
-parser.add_argument("--dico_path", type=str, default="", help="dictionary path")
+parser.add_argument("--dico_train", type=str, default="", help="dictionary path train")
+parser.add_argument("--dico_test", type=str, default="", help="dictionary path test ")
+parser.add_argument("--save_path", type=str, default="", help="dictionary path")
 
 params = parser.parse_args()
 
@@ -74,8 +76,15 @@ def load_dictionary(path, word2id1, word2id2,src_embed,tgt_embed):
 def main():
     src_embed,id2word1, word2id1 = load_vec(params.src_path)
     tgt_embed,id2word2, word2id2 = load_vec(params.tgt_path)
-    dico = load_dictionary(params.dico_path,word2id1,word2id2,src_embed,tgt_embed)
-    joblib.dump(dico,"test_lib.jlb")
+    dico = load_dictionary(params.dico_train,word2id1,word2id2,src_embed,tgt_embed)
+    f=params.src_lang+" "+params.tgt_lang
+    path = "{}_train.jlb".format(f)
+    tmp=os.path.join(params.save_path,path)
+    joblib.dump(dico,tmp)
+    dico = load_dictionary(params.dico_test,word2id1,word2id2,src_embed,tgt_embed)
+    path = "{}_test.jlb".format(f)
+    tmp=os.path.join(params.save_path,path)
+    joblib.dump(dico,tmp)
 
 
 if __name__ == "__main__":
