@@ -73,7 +73,7 @@ def load_dictionary(path, word2id1, word2id2,src_embed,tgt_embed):
 def main():
     src_embed,id2word1, word2id1 = load_vec(params.src_path)
     tgt_embed,id2word2, word2id2 = load_vec(params.tgt_path)
-                        dico = load_dictionary(params.dico_path,word2id1=,word2id2,src_embed,tgt_embed)
+    dico = load_dictionary(params.dico_path,word2id1=,word2id2,src_embed,tgt_embed)
     joblib.dump(dico,"test_lib.jlb")
 
 
