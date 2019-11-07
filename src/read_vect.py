@@ -77,5 +77,5 @@ def main():
     joblib.dump(dico,"test_lib.jlb")
 
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     main
