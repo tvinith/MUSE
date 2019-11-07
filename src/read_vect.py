@@ -3,7 +3,7 @@ import os
 import sys
 import argparse
 import torch
-
+import joblib
 
 parser = argparse.ArgumentParser(description='GRET training')
 parser.add_argument("--src_lang", type=str, default="", help="source language")
@@ -74,6 +74,7 @@ def main():
     src_embed,id2word1, word2id1 = load_vec(params.src_path)
     tgt_embed,id2word2, word2id2 = load_vec(params.tgt_path)
                         dico = load_dictionary(params.dico_path,word2id1=,word2id2,src_embed,tgt_embed)
+    joblib.dump(dico,"test_lib.jlb")
 
 
 if __name__ = "__main__":
