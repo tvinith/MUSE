@@ -61,8 +61,6 @@ elif [ $KSWITCH == "SUP" ]; then
  			EXP_ID=$8
       python evaluate.py   --src_lang $2 --tgt_lang $3 --src_emb $4 \
  			 				--tgt_emb $5 \
- 							--dico_train $6
- 							--dico_test $7
  		         --cuda True \
  						 --dico_build "S2T&T2S" \
  			 		 	 --exp_name "en_es" \
