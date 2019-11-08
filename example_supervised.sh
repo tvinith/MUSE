@@ -57,14 +57,9 @@ elif [ $KSWITCH == "SUP" ]; then
  			SRC_PATH=$4
  			TGT_PATH=$5
  			EXP_ID=$6
-      python evaluate.py   --src_lang $2 --tgt_lang $3 --src_emb $4 \
+      python src/evaluate.py   --src_lang $2 --tgt_lang $3 --src_emb $4 \
  			 				--tgt_emb $5 \
  		         --cuda True \
- 						 --dico_build "S2T&T2S" \
  			 		 	 --exp_name "en_es" \
- 	           --exp_id $6 \
- 			       --n_refinement 10 \
- 			       --n_epochs 5
-
-
+ 	           --exp_id $6  
 fi
