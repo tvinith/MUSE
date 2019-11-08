@@ -32,7 +32,7 @@ elif [ $KSWITCH == "UNSUP" ]; then
 			       --n_refinement 10 \
 			       --n_epochs 5
 elif [ $KSWITCH == "SUP" ]; then
-			echo "RUNNING unsupervised"
+			echo "RUNNING supervised"
 			SRC_LANG=$2
 			TGT_LANG=$3
 			SRC_PATH=$4
@@ -40,7 +40,7 @@ elif [ $KSWITCH == "SUP" ]; then
 			DICO_TRAIN=$6
 			DICO_TEST=$7
 			EXP_ID=$8
-     python supervised.py   --src_lang $2 --tgt_lang $3 --src_emb $4 \
+    python supervised.py   --src_lang $2 --tgt_lang $3 --src_emb $4 \
 			 				--tgt_emb $5 \
 							--dico_train $6
 							--dico_test $7
@@ -50,4 +50,25 @@ elif [ $KSWITCH == "SUP" ]; then
 	           --exp_id $8 \
 			       --n_refinement 10 \
 			       --n_epochs 5
+ elif [ $KSWITCH == "EVAL" ]; then
+ 			echo "RUNNING EVAL"
+ 			SRC_LANG=$2
+ 			TGT_LANG=$3
+ 			SRC_PATH=$4
+ 			TGT_PATH=$5
+ 			DICO_TRAIN=$6
+ 			DICO_TEST=$7
+ 			EXP_ID=$8
+      python evaluate.py   --src_lang $2 --tgt_lang $3 --src_emb $4 \
+ 			 				--tgt_emb $5 \
+ 							--dico_train $6
+ 							--dico_test $7
+ 		         --cuda True \
+ 						 --dico_build "S2T&T2S" \
+ 			 		 	 --exp_name "en_es" \
+ 	           --exp_id $8 \
+ 			       --n_refinement 10 \
+ 			       --n_epochs 5
+
+
 fi
