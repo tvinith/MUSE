@@ -46,7 +46,7 @@ class Embeddings(object):
                 assert word not in self.word2id, 'word found twice'
                 vectors.append(vect)
                 self.word2id[word] = len(self.word2id)
-                if i%100==0:
+                if i!=0 and i%200==0:
                     break
         self.id2word = {v: k for k, v in self.word2id.items()}
         self.embedd= np.vstack(vectors)
@@ -62,9 +62,8 @@ class Embeddings(object):
 
         """
         with io.open(self.save_path, 'w', encoding='utf-8') as f:
-            # import pdb;pdb.set_trace()
-
-            f.write(u"%i %i\n" % self.embedd.size)
+            import pdb;pdb.set_trace()
+            f.write(u"%i %i\n" % (self.embedd.shape[0], self.embedd.shape[1]))
             for i in range(len(self.embedd)):
                 f.write(u"%s %s\n" % (self.id2word[i], " ".join('%.5f' % x for x in self.embedd[i])))
 
