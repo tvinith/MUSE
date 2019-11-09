@@ -47,7 +47,7 @@ class Embeddings(object):
                 vectors.append(vect)
                 self.word2id[word] = len(self.word2id)
                 if i!=0 and i%100000==0:
-                    print(i)
+                    break
         self.id2word = {v: k for k, v in self.word2id.items()}
         self.embedd= np.vstack(vectors)
         print("Shape of embeddings : {}".format(self.embedd.shape))
@@ -62,13 +62,13 @@ class Embeddings(object):
 
         """
         with io.open(self.save_path, 'w', encoding='utf-8') as f:
-            import pdb;pdb.set_trace()
+            # import pdb;pdb.set_trace()
             f.write(u"%i %i\n" % (self.embedd.shape[0], self.embedd.shape[1]))
             for i in range(len(self.embedd)):
                 f.write(u"%s %s\n" % (self.id2word[i], " ".join('%.5f' % x for x in self.embedd[i])))
 
     def transform(self):
-        import pdb;pdb.set_trace()
+        # import pdb;pdb.set_trace()
         dim=self.embedd[0].shape[0]
         self.embedd=(np.add(np.matmul(self.rot,self.embedd.T),self.trans.reshape(dim,1))).T
 
