@@ -47,7 +47,7 @@ class Embeddings(object):
                 vectors.append(vect)
                 self.word2id[word] = len(self.word2id)
                 if i!=0 and i%100000==0:
-                    break
+                    print(i)
         self.id2word = {v: k for k, v in self.word2id.items()}
         self.embedd= np.vstack(vectors)
         print("Shape of embeddings : {}".format(self.embedd.shape))
