@@ -62,7 +62,7 @@ class Embeddings(object):
 
         """
         with io.open(self.save_path, 'w', encoding='utf-8') as f:
-            f.write(u"%i %i\n" % self.embedd.size())
+            f.write(u"%i %i\n" % self.embedd.size)
             for i in range(len(self.embedd)):
                 f.write(u"%s %s\n" % (self.id2word[i], " ".join('%.5f' % x for x in self.embedd[i])))
 
