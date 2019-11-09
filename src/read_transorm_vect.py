@@ -66,8 +66,9 @@ class Embeddings(object):
                 f.write(u"%s %s\n" % (self.id2word[i], " ".join('%.5f' % x for x in self.embedd[i])))
 
     def transform(self):
-        import pdb;pdb.set_trace()
-        self.embedd=(np.add(np.matmul(self.rot,self.embedd.T),self.trans)).T
+        # import pdb;pdb.set_trace()
+        dim=self.embedd[0].shape[0]
+        self.embedd=(np.add(np.matmul(self.rot,self.embedd.T),self.trans.reshape(dim,1))).T
 
 
 def main():
