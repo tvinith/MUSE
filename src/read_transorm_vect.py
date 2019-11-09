@@ -46,6 +46,8 @@ class Embeddings(object):
                 assert word not in self.word2id, 'word found twice'
                 vectors.append(vect)
                 self.word2id[word] = len(self.word2id)
+                if i==200:
+                    break
         self.id2word = {v: k for k, v in self.word2id.items()}
         self.embedd= np.vstack(vectors)
         print("Shape of embeddings : {}".format(self.embedd.shape))
@@ -64,6 +66,7 @@ class Embeddings(object):
                 f.write(u"%s %s\n" % (self.id2word[i], " ".join('%.5f' % x for x in self.embedd[i])))
 
     def transform(self):
+        import pdb;pdb.set_trace()
         self.embedd=(np.add(np.matmul(self.rot,self.embedd.T),self.trans)).T
 
 
