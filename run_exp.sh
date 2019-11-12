@@ -27,7 +27,7 @@ elif [ $KSWITCH == "UNSUP" ]; then
 			 				--tgt_emb $5 \
 		         --cuda True \
 						 --dico_build "S2T&T2S" \
-			 		 	 --exp_name "en_es" \
+			 		 	 --exp_name "${SRC_LANG}_${TGT_LANG}" \
 	           --exp_id $6 \
 			       --n_refinement 10 \
 			       --n_epochs 5
