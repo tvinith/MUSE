@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 
 
-
 function runExperiment {
   #statements
 
+<<<<<<< HEAD
+function runExperiment {
+  #statements
+
+=======
+>>>>>>> 2cb535d85d13a292ea14e34b66566a0f4a56da93
   vect_src=$1
   vect_tgt=$2
   vect_src_path='data/vect/wiki.'$vect_src'.vec'
@@ -30,5 +35,8 @@ for i in {0..5}
       fi
     done
   done
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 2cb535d85d13a292ea14e34b66566a0f4a56da93
