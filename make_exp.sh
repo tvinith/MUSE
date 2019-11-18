@@ -3,7 +3,8 @@
 
 function runExperiment {
   #statements
-
+  vect_src=$1
+  vect_tgt=$2
   vect_src_path='data/vect/wiki.'$vect_src'.vec'
   vect_tgt_path='data/vect/wiki.'$vect_tgt'.vec'
   echo "Vect Source: $vect_src_path"
