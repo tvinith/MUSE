@@ -23,14 +23,18 @@ elif [ $KSWITCH == "UNSUP" ]; then
 			SRC_PATH=$4
 			TGT_PATH=$5
 			EXP_ID=$6
+			EXP_NAME="${SRC_LANG}_${TGT_LANG}_R"
       python unsupervised.py   --src_lang $2 --tgt_lang $3 --src_emb $4 \
 			 				--tgt_emb $5 \
 		         --cuda True \
 						 --dico_build "S2T&T2S" \
-			 		 	 --exp_name "${SRC_LANG}_${TGT_LANG}_R" \
+			 		 	 --exp_name ${EXP_NAME} \
 	           --exp_id $6 \
 			       --n_refinement 0 \
 			       --n_epochs 5
+
+			tar -cvf "/dumped/"${EXP_NAME}".tar.gz" "/dumped/"${EXP_NAME}"/"
+			rm -rf "/dumped/"${EXP_NAME}
 elif [ $KSWITCH == "SUP" ]; then
 			echo "RUNNING supervised"
 			SRC_LANG=$2
