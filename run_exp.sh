@@ -66,4 +66,11 @@ elif [ $KSWITCH == "SUP" ]; then
  		         --cuda True \
  			 		 	 --exp_name "${SRC_LANG}_${TGT_LANG}_R" \
  	           --exp_id $6
+
+elif [ $KSWITCH == "TRANSFORM" ]; then
+			echo "RUNNING TRANSFORM"
+			VECT_DIR=$2
+			TRANS_FILE=$3
+			SAVE_DIR=$4
+      python src/read_transform_vect.py --vect_path $2 --trans_mat $3 --save_path $4 
 fi
