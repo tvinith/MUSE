@@ -64,6 +64,6 @@ elif [ $KSWITCH == "SUP" ]; then
       python evaluate.py   --src_lang $2 --tgt_lang $3 --src_emb $4 \
  			 				--tgt_emb $5 \
  		         --cuda True \
- 			 		 	 --exp_name "en_es" \
+ 			 		 	 --exp_name "${SRC_LANG}_${TGT_LANG}_R" \
  	           --exp_id $6
 fi
