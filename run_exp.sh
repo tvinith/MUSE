@@ -63,6 +63,7 @@ elif [ $KSWITCH == "SUP" ]; then
  			EXP_ID=$6
       python evaluate.py   --src_lang $2 --tgt_lang $3 --src_emb $4 \
  			 				--tgt_emb $5 \
+							--dico_eval "data/crosslingual/dictionaries/"$2-$3".5000-6500.txt"
  		         --cuda True \
  			 		 	 --exp_name "${SRC_LANG}_${TGT_LANG}_R" \
  	           --exp_id $6
@@ -72,5 +73,5 @@ elif [ $KSWITCH == "TRANSFORM" ]; then
 			VECT_DIR=$2
 			TRANS_FILE=$3
 			SAVE_DIR=$4
-      python src/read_transform_vect.py --vect_path $2 --trans_mat $3 --save_path $4 
+      python src/read_transform_vect.py --vect_path $2 --trans_mat $3 --save_path $4
 fi
